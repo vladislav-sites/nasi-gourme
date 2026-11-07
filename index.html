@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NASI — премиальная дагестанская кухня · Махачкала</title>
+<meta name="description" content="NASI GOURME: чуду, курзе, хинкал и горячее ручной лепки. Доставка по Махачкале, бесплатно от 3000 ₽. Самовывоз: проспект Амет-Хана Султана, 29, к. 7.">
+<meta name="theme-color" content="#50171d">
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="css/fonts.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="is-loading">
+
+<!-- Орнаменты (свои SVG-символы) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="o-rhomb" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="2.4"><path d="M32 4 60 32 32 60 4 32Z"/><path d="M32 16 48 32 32 48 16 32Z"/></g><path fill="currentColor" d="M32 26 38 32 32 38 26 32Z"/></symbol>
+    <symbol id="o-mount" viewBox="0 0 96 48"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" d="M2 44 28 14l10 11 14-19 18 22 6-6 18 22"/><path fill="none" stroke="currentColor" stroke-width="2.4" d="M44 16l8-10 8 10"/></symbol>
+    <symbol id="o-chev" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"><path d="M8 40 32 16l24 24"/><path d="M16 52 32 36l16 16"/><path d="M22 24 32 14l10 10"/></g></symbol>
+    <symbol id="o-star" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="2.4"><path d="M32 4 39 25 60 32 39 39 32 60 25 39 4 32 25 25Z"/><rect x="21" y="21" width="22" height="22" transform="rotate(45 32 32)"/></g><circle cx="32" cy="32" r="3.5" fill="currentColor"/></symbol>
+    <symbol id="o-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></symbol>
+    <pattern id="o-band" width="40" height="24" patternUnits="userSpaceOnUse"><path d="M0 12 10 2l10 10-10 10Z M20 12 30 2l10 10-10 10Z" fill="none" stroke="#f3e7da" stroke-opacity=".45" stroke-width="1.2"/><path d="M10 9l3 3-3 3-3-3Z M30 9l3 3-3 3-3-3Z" fill="#f3e7da" fill-opacity=".6"/></pattern>
+  </defs>
+</svg>
+
+<!-- Заставка -->
+<div class="preloader" id="preloader" aria-hidden="true">
+  <svg class="preloader__orn"><use href="#o-star"/></svg>
+  <div class="preloader__logo"><img src="assets/logo-cream.png" alt=""></div>
+  <div class="preloader__line"><i id="preloaderBar"></i></div>
+  <p class="preloader__sub">Махачкала</p>
+</div>
+
+<!-- Курсор -->
+<div class="cursor" id="cursor" aria-hidden="true"><span id="cursorLabel"></span></div>
+<div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+
+<!-- ============ ШАПКА ============ -->
+<header class="hdr" id="hdr">
+  <button class="burger" id="burgerBtn" aria-label="Открыть меню" aria-expanded="false"><span></span><span></span><span></span></button>
+  <a href="#top" class="logo" aria-label="NASI — на главную"><img src="assets/logo-cream.png" alt="NASI — премиальная дагестанская кухня"></a>
+  <div class="hdr__right">
+    <div class="hdr__contacts">
+      <span>Амет-Хана Султана, 29</span>
+      <a href="tel:+79064800076">+7 906 480-00-76</a>
+    </div>
+    <a class="icon-btn" href="https://wa.me/79064800076" target="_blank" rel="noopener" aria-label="Написать в WhatsApp"><svg><use href="#o-wa"/></svg></a>
+    <button class="icon-btn cart-btn" id="cartBtn" aria-label="Корзина">
+      <svg viewBox="0 0 24 24" class="stroke" aria-hidden="true"><path d="M5 7h14l-1.2 12.2a1 1 0 0 1-1 .8H7.2a1 1 0 0 1-1-.8L5 7Z"/><path d="M9 7V5.5a3 3 0 0 1 6 0V7"/></svg>
+      <span class="cart-btn__count" id="cartCount">0</span>
+    </button>
+  </div>
+</header>
+
+<!-- Боковое меню -->
+<div class="drawer-backdrop" id="navBackdrop"></div>
+<aside class="side-nav" id="sideNav" aria-hidden="true" data-lenis-prevent>
+  <button class="close-x" id="navClose" aria-label="Закрыть меню"></button>
+  <nav class="side-nav__links">
+    <a href="#top">Главная</a>
+    <a href="#about">О нас</a>
+    <a href="#menu">Меню</a>
+    <a href="#frozen">Полуфабрикаты</a>
+    <a href="#banquet">Фуршеты</a>
+    <a href="#contacts">Доставка и контакты</a>
+  </nav>
+  <div class="side-nav__info">
+    <p><span>Телефон:</span> <a href="tel:+79064800076">+7 906 480-00-76</a></p>
+    <p><span>Время работы:</span> 9:00 — 20:00</p>
+    <p><span>Адрес:</span> Махачкала, пр-т Амет-Хана Султана, 29, к. 7</p>
+  </div>
+  <div class="side-nav__btns">
+    <a href="#menu" class="pill pill--fill">Заказать доставку</a>
+    <a href="https://wa.me/79064800076" target="_blank" rel="noopener" class="pill">Написать в WhatsApp</a>
+  </div>
+  <svg class="side-nav__orn"><use href="#o-mount"/></svg>
+</aside>
+
+<main id="top">
+
+<!-- ============ ГЕРОЙ ============ -->
+<section class="hero sec--wine">
+  <div class="hero__media"><img src="assets/photos/hero-dough.jpg" alt="Руки лепят тесто"></div>
+  <div class="hero__shade"></div>
+  <div class="hero__content">
+    <svg class="hero__orn reveal"><use href="#o-rhomb"/></svg>
+    <p class="hero__kicker reveal">Махачкала · доставка и самовывоз</p>
+    <h1 class="hero__title" data-split>Дагестанская<br>кухня ручной<br>лепки</h1>
+    <p class="hero__lead reveal">Чуду, курзе и хинкал — как дома, только премиально</p>
+  </div>
+  <div class="hero__bottom">
+    <div class="hero__btns reveal">
+      <a href="#menu" class="pill">Меню</a>
+      <a href="https://wa.me/79064800076" target="_blank" rel="noopener" class="pill">Заказать в WhatsApp</a>
+      <a href="#frozen" class="pill">Полуфабрикаты</a>
+      <a href="#banquet" class="pill">Фуршеты</a>
+    </div>
+    <div class="hero__hours reveal">
+      <span class="status" id="openStatus"><i></i><b>9:00 — 20:00</b></span>
+    </div>
+  </div>
+</section>
+
+<div class="band sec--wine" aria-hidden="true"><svg><rect width="100%" height="100%" fill="url(#o-band)"/></svg></div>
+
+<!-- ============ О НАС ============ -->
+<section class="about sec--cream" id="about">
+  <div class="about__text">
+    <span class="eyebrow reveal">01 — О нас</span>
+    <h2 class="h2" data-split>Вкус гор<br>в каждой детали</h2>
+    <p class="reveal">NASI — премиальная дагестанская кухня в Махачкале. Горячее и полуфабрикаты ручной лепки: чуду, курзе, хинкал, манты, пиде и осетинские пироги.</p>
+    <p class="reveal">Мясо — от наших партнёров <a href="https://instagram.com/gurmeat_" target="_blank" rel="noopener">Gurmeat</a>. Горский творог, бурачные листья, ореховая трава, топлёное масло — всё, за что любят кухню Дагестана.</p>
+    <p class="about__sign reveal">Привезём по Махачкале или ждём вас на самовывоз.</p>
+  </div>
+  <figure class="about__img wipe px"><img src="assets/photos/mountains.jpg" alt="Горы Дагестана на закате" loading="lazy"></figure>
+</section>
+
+<section class="facts sec--cream">
+  <div class="fact reveal"><b><em data-count="3000">3000</em><small>₽</small></b><span>бесплатная доставка от</span></div>
+  <div class="fact reveal"><b><em data-count="5">5</em><small>%</small></b><span>кешбэк с каждого заказа</span></div>
+  <div class="fact reveal"><b><em id="factCount" data-count="130">130</em></b><span>блюд в меню</span></div>
+  <div class="fact reveal"><b>9—20</b><span>ждём ваших заказов</span></div>
+</section>
+
+<!-- Бегущая строка -->
+<div class="marquee sec--wine" aria-hidden="true">
+  <div class="marquee__track">
+    <span>Чуду</span><svg><use href="#o-rhomb"/></svg><span class="o">Курзе</span><svg><use href="#o-rhomb"/></svg><span>Хинкал</span><svg><use href="#o-rhomb"/></svg><span class="o">Пиде</span><svg><use href="#o-rhomb"/></svg><span>Манты</span><svg><use href="#o-rhomb"/></svg><span class="o">Халпама</span><svg><use href="#o-rhomb"/></svg>
+    <span>Чуду</span><svg><use href="#o-rhomb"/></svg><span class="o">Курзе</span><svg><use href="#o-rhomb"/></svg><span>Хинкал</span><svg><use href="#o-rhomb"/></svg><span class="o">Пиде</span><svg><use href="#o-rhomb"/></svg><span>Манты</span><svg><use href="#o-rhomb"/></svg><span class="o">Халпама</span><svg><use href="#o-rhomb"/></svg>
+  </div>
+</div>
+
+<!-- ============ ХИТЫ ============ -->
+<section class="sets sec--wine" id="hits">
+  <div class="sec-head">
+    <span class="eyebrow reveal">02 — Визитная карточка</span>
+    <h2 class="h2" data-split>Хиты NASI</h2>
+  </div>
+  <div class="sets__track" id="hitsTrack"></div>
+  <div class="sets__nav">
+    <button class="circle-btn" id="hitsPrev" aria-label="Назад">&larr;</button>
+    <button class="circle-btn" id="hitsNext" aria-label="Вперёд">&rarr;</button>
+  </div>
+</section>
+
+<!-- ============ АКЦИИ ============ -->
+<section class="promos sec--cream">
+  <article class="promo reveal">
+    <svg><use href="#o-mount"/></svg>
+    <b>от 3 000 ₽</b>
+    <h3>Бесплатная доставка</h3>
+    <p>по Махачкале</p>
+  </article>
+  <article class="promo promo--accent reveal">
+    <svg><use href="#o-star"/></svg>
+    <b>5%</b>
+    <h3>Кешбэк на любимые блюда</h3>
+    <p>чуду, курзе, хинкал и всё меню — возвращаем бонусами с каждого заказа</p>
+  </article>
+  <article class="promo reveal">
+    <svg><use href="#o-chev"/></svg>
+    <b>990 ₽</b>
+    <h3>3 чуду на выбор</h3>
+    <p>соберите своё комбо из трёх разных вкусов</p>
+  </article>
+</section>
+
+<!-- ============ ГАЛЕРЕЯ ============ -->
+<section class="gallery sec--cream" aria-label="Атмосфера">
+  <figure class="g g--a wipe px"><img src="assets/photos/tower.jpg" alt="Старинная башня в горах Дагестана" loading="lazy"><figcaption>Дагестан</figcaption></figure>
+  <figure class="g g--b wipe px"><img src="assets/photos/flour-hands.jpg" alt="Руки в муке" loading="lazy"><figcaption>Ручная работа</figcaption></figure>
+  <figure class="g g--c wipe px"><img src="assets/photos/candles.jpg" alt="Чашка чая при свечах" loading="lazy"><figcaption>Как дома</figcaption></figure>
+  <figure class="g g--d wipe px"><img src="assets/photos/tea.jpg" alt="Чайный сервиз и свечи" loading="lazy"></figure>
+</section>
+
+<!-- ============ МЕНЮ ============ -->
+<section class="menu sec--cream" id="menu">
+  <div class="menu__head">
+    <div>
+      <span class="eyebrow reveal">03 — Кухня</span>
+      <h2 class="h2" data-split>Меню</h2>
+    </div>
+    <p class="menu__note reveal">Добавляйте блюда в корзину — заказ уйдёт нам в WhatsApp</p>
+  </div>
+  <div class="cats" id="cats" role="tablist"></div>
+  <div class="menu__grid" id="menuGrid"></div>
+</section>
+
+<!-- ============ ПОЛУФАБРИКАТЫ ============ -->
+<section class="frozen sec--wine" id="frozen">
+  <figure class="frozen__img wipe px"><img src="assets/photos/dumplings.jpg" alt="Хинкали ручной лепки" loading="lazy"></figure>
+  <div class="frozen__text">
+    <span class="eyebrow reveal">04 — Полуфабрикаты</span>
+    <h2 class="h2" data-split>Ручная лепка<br>к вам на кухню</h2>
+    <p class="reveal">Хинкал, курзе, манты, пельмени, долма и голубцы — лепим вручную и замораживаем. Достаточно сварить или запечь дома.</p>
+    <ul class="frozen__list" id="frozenList"></ul>
+    <a href="#menu" class="pill reveal" id="frozenBtn">Все полуфабрикаты</a>
+  </div>
+</section>
+
+<!-- ============ ФУРШЕТЫ ============ -->
+<section class="banquet" id="banquet">
+  <div class="banquet__bg px"><img src="assets/photos/tea.jpg" alt="" loading="lazy"></div>
+  <div class="banquet__inner">
+    <svg class="banquet__orn reveal"><use href="#o-star"/></svg>
+    <span class="eyebrow eyebrow--center reveal">05 — Фуршеты</span>
+    <h2 class="h2" data-split>Накроем стол<br>к вашему событию</h2>
+    <p class="reveal">Дни рождения, встречи с близкими, праздники в офисе — соберём фуршет под ваш повод и количество гостей.</p>
+    <a class="pill pill--fill reveal" target="_blank" rel="noopener" href="https://wa.me/79064800076?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%20%D1%84%D1%83%D1%80%D1%88%D0%B5%D1%82.">Обсудить в WhatsApp</a>
+  </div>
+</section>
+
+<!-- ============ INSTAGRAM ============ -->
+<section class="insta sec--cream">
+  <div class="insta__head">
+    <span class="eyebrow reveal">06 — Мы в Instagram</span>
+    <a class="insta__handle" href="https://instagram.com/nasi.gourme" target="_blank" rel="noopener" data-split>@nasi.gourme</a>
+  </div>
+  <div class="insta__grid" id="instaGrid"></div>
+</section>
+
+<!-- Бегущая строка: телефон -->
+<a href="https://wa.me/79064800076" target="_blank" rel="noopener" class="marquee marquee--call sec--wine" aria-label="Заказать в WhatsApp">
+  <div class="marquee__track marquee__track--rev">
+    <span>Заказать</span><svg><use href="#o-star"/></svg><span class="o">+7 906 480-00-76</span><svg><use href="#o-star"/></svg><span>Заказать</span><svg><use href="#o-star"/></svg><span class="o">+7 906 480-00-76</span><svg><use href="#o-star"/></svg>
+    <span>Заказать</span><svg><use href="#o-star"/></svg><span class="o">+7 906 480-00-76</span><svg><use href="#o-star"/></svg><span>Заказать</span><svg><use href="#o-star"/></svg><span class="o">+7 906 480-00-76</span><svg><use href="#o-star"/></svg>
+  </div>
+</a>
+
+<!-- ============ ДОСТАВКА И КОНТАКТЫ ============ -->
+<section class="contacts sec--wine" id="contacts">
+  <div class="contacts__info">
+    <span class="eyebrow reveal">07 — Доставка и контакты</span>
+    <h2 class="h2" data-split>Ждём вас<br>и ваших заказов</h2>
+    <dl class="cinfo">
+      <div class="reveal"><dt>Адрес самовывоза</dt><dd>Махачкала, проспект Амет-Хана Султана, 29, к. 7</dd></div>
+      <div class="reveal"><dt>Время работы</dt><dd>9:00 — 20:00</dd></div>
+      <div class="reveal"><dt>Доставка</dt><dd>По Махачкале · бесплатно от 3 000 ₽</dd></div>
+      <div class="reveal"><dt>Телефон и WhatsApp</dt><dd><a href="tel:+79064800076">+7 906 480-00-76</a></dd></div>
+    </dl>
+    <div class="contacts__btns reveal">
+      <a href="https://wa.me/79064800076" target="_blank" rel="noopener" class="pill pill--fill"><svg class="pill__ic"><use href="#o-wa"/></svg>WhatsApp</a>
+      <a href="tel:+79064800076" class="pill">Позвонить</a>
+    </div>
+  </div>
+  <div class="contacts__map wipe">
+    <iframe title="NASI на карте" src="https://yandex.ru/map-widget/v1/?ll=47.5196585%2C42.9288907&z=16&pt=47.5196585%2C42.9288907%2Cpm2rdl" loading="lazy" allowfullscreen></iframe>
+  </div>
+</section>
+
+</main>
+
+<footer class="ftr sec--deep">
+  <div class="ftr__brand">
+    <a href="#top" class="logo logo--ftr"><img src="assets/logo-cream.png" alt="NASI"></a>
+    <div class="socials">
+      <a href="https://instagram.com/nasi.gourme" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
+      <a href="https://wa.me/79064800076" target="_blank" rel="noopener" aria-label="WhatsApp"><svg><use href="#o-wa"/></svg></a>
+    </div>
+  </div>
+  <div class="ftr__cols">
+    <nav class="ftr__nav">
+      <a href="#top">Главная</a><a href="#about">О нас</a><a href="#menu">Меню</a><a href="#frozen">Полуфабрикаты</a><a href="#banquet">Фуршеты</a><a href="#contacts">Контакты</a>
+    </nav>
+    <div class="ftr__info">
+      <div><small>Адрес</small><p>Махачкала, пр-т Амет-Хана Султана, 29, к. 7</p></div>
+      <div><small>Телефон</small><p><a href="tel:+79064800076">+7 906 480-00-76</a></p></div>
+      <div><small>Время работы</small><p>9:00 — 20:00</p></div>
+      <div><small>Instagram</small><p><a href="https://instagram.com/nasi.gourme" target="_blank" rel="noopener">@nasi.gourme</a></p></div>
+    </div>
+  </div>
+  <svg class="ftr__orn" aria-hidden="true"><rect width="100%" height="100%" fill="url(#o-band)"/></svg>
+</footer>
+
+<!-- Плашка демо (убрать после согласования с NASI) -->
+<div class="demo-badge" role="note">Демо-концепция · не официальный сайт NASI</div>
+
+<!-- Плавающая кнопка WhatsApp -->
+<a href="https://wa.me/79064800076" target="_blank" rel="noopener" class="fab" aria-label="Написать в WhatsApp"><svg><use href="#o-wa"/></svg></a>
+
+<!-- Карточка блюда -->
+<div class="modal" id="productModal" aria-hidden="true" data-lenis-prevent>
+  <div class="modal__backdrop" data-close></div>
+  <div class="modal__box" role="dialog" aria-modal="true" aria-labelledby="pmTitle">
+    <button class="close-x" data-close aria-label="Закрыть"></button>
+    <div class="pm__img" id="pmImgWrap"><img id="pmImg" alt=""></div>
+    <div class="pm__body">
+      <p class="pm__cat" id="pmCat"></p>
+      <h3 class="pm__title" id="pmTitle"></h3>
+      <p class="pm__desc" id="pmDesc"></p>
+      <div class="pm__buy">
+        <div class="pm__price" id="pmPrice"></div>
+        <button class="pill pill--fill" id="pmAdd">В корзину</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Корзина -->
+<div class="drawer-backdrop" id="cartBackdrop"></div>
+<aside class="cart" id="cart" aria-hidden="true" data-lenis-prevent>
+  <div class="cart__head">
+    <h3>Ваш заказ</h3>
+    <button class="close-x" id="cartClose" aria-label="Закрыть корзину"></button>
+  </div>
+  <div class="cart__scroll">
+    <div class="cart__list" id="cartList"></div>
+    <form class="cart__form" id="cartForm" autocomplete="on">
+      <div class="seg" role="radiogroup" aria-label="Способ получения">
+        <label><input type="radio" name="how" value="Доставка" checked><span>Доставка</span></label>
+        <label><input type="radio" name="how" value="Самовывоз"><span>Самовывоз</span></label>
+      </div>
+      <label class="fld"><span>Имя</span><input name="name" type="text" autocomplete="name"></label>
+      <label class="fld" id="addrFld"><span>Адрес доставки</span><input name="addr" type="text" autocomplete="street-address"></label>
+      <label class="fld"><span>Комментарий</span><input name="note" type="text" placeholder="время, подъезд, пожелания"></label>
+    </form>
+  </div>
+  <div class="cart__foot">
+    <div class="cart__progress" id="cartProgress"></div>
+    <div class="cart__total"><span>Итого</span><b id="cartTotal">0 ₽</b></div>
+    <button class="pill pill--fill pill--wide" id="cartOrder"><svg class="pill__ic"><use href="#o-wa"/></svg>Отправить заказ в WhatsApp</button>
+    <a href="tel:+79064800076" class="pill pill--wide">Или позвоните: +7 906 480-00-76</a>
+  </div>
+</aside>
+
+<div class="toast" id="toast"></div>
+
+<script src="js/vendor/lenis.min.js"></script>
+<script src="js/menu-data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
